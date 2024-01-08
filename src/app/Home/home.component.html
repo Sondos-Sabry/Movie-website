@@ -1,0 +1,73 @@
+<!--
+   <h3 class="text-center"><i class="fas fa-home"></i>Home page</h3>
+   <h2 [style.display]="onSale== true ? 'none': 'block' "  [style.color]="productPrice > 2000 ? '#09c' : 'green' ">Name : {{userName}}</h2>
+   <h2 [class]="onSale == true ? 'bg-danger' : 'br-info' ">{{userAge}}</h2>
+ -->
+
+<!--  property binding
+<h4> Name :{{user.fullName}}</h4>
+<h4> Name :{{user.age}}</h4>
+<h4> Name :{{user.gender}}</h4> 
+-->
+
+<!-- for loop in angular
+<ul>
+    <li *ngFor="let names of friends">{{names}}</li>
+</ul> 
+
+
+<table *ngIf="users.length > 0; else hambozo" class="w-75 table mx-auto py-5 text-center">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Salary</th>
+        <th>Gender</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.fullName}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.salary}}</td>
+            <td>{{user.gender}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #hambozo class="text-center ">
+    <h4>No Data Fetched</h4>
+</ng-template>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3" *ngFor="let names of friends">
+            <h3>{{names}}</h3>
+        </div>
+    </div>
+</div>
+
+<img [width]="imgWidth" [src]="imgSrc" alt="">
+<button (click)="Welcome()" class="btn btn-info my-3 d-block">Click me!</button>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius ipsum maxime, adipisci eos iusto tempore laudantium excepturi officia, quam aperiam itaque quod labore quo earum! Perferendis, quia. Iure, obcaecati reiciendis.</p>
+<button >Ok</button>
+-->
+
+<!-- now you can share home data to slider without service => home is parent of slider -->
+ <app-slider [userNameFromParent]="userName"></app-slider>
+<div class="row">
+   
+    <div *ngFor="let movie of trendingMovies" class="col-md-2">
+        <div class="movie position-relative">
+            <img [src]="posterPrefix+movie.poster_path" alt="" class="w-100">
+            <div [ngClass]="{
+                'bg-danger':movie.vote_average > 7,
+                'bg-secondary':movie.vote_average < 7
+                }"class="vote">
+                {{movie.vote_average}}
+            </div>  
+           <h5>{{movie.title}}</h5>        
+           <p>{{movie.overview}}</p>
+        </div>
+    </div>
+</div>
